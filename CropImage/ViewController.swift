@@ -65,25 +65,19 @@ class ViewController: UIViewController {
         return UIImage(cgImage: croppedCGImage!)
     }
     
-    func cropImage2(image: UIImage, rect: CGRect, scale: CGFloat) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: rect.size.width / scale, height: rect.size.height / scale), true, 0.0)
-        //draw at point
-        image.draw(at: CGPoint(x: -rect.origin.x / scale, y: -rect.origin.y / scale))
-        let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return croppedImage
+    // Crop ok but cause momory leak
+    func crop(image:UIImage, cropRect:CGRect) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(cropRect.size, false, image.scale)
+        let origin = CGPoint(x: cropRect.origin.x * CGFloat(-1), y: cropRect.origin.y * CGFloat(-1))
+        image.draw(at: origin)
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+           
+        return result
     }
     
 }
 extension UIImage {
-    func cropping(to rect: CGRect) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, self.scale)
-        // draw in rect
-        self.draw(in: CGRect(x: -rect.origin.x, y: -rect.origin.y, width: self.size.width, height: self.size.height))
-        let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return croppedImage
-    }
     
     func rotated(angle: CGFloat) -> UIImage? {
         if angle == -90 {
