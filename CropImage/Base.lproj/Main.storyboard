@@ -15,32 +15,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tK8-fO-eUw">
-                                <rect key="frame" x="82" y="428" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="5r5-w5-A6f"/>
-                                    <constraint firstAttribute="width" constant="250" id="jSf-SE-nSf"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image0" translatesAutoresizingMaskIntoConstraints="NO" id="XEC-lA-k9g">
-                                <rect key="frame" x="82" y="137" width="250" height="250"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="XEC-lA-k9g">
+                                <rect key="frame" x="82" y="94" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="bIZ-Aq-e7U"/>
                                     <constraint firstAttribute="height" constant="250" id="mtv-ra-Bys"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-s2-XlF">
+                                <rect key="frame" x="82" y="394" width="250" height="250"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Dw0-vM-PtT"/>
+                                    <constraint firstAttribute="height" constant="250" id="b75-pO-Rwv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="tK8-fO-eUw" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="100" id="Vzl-z1-Zl9"/>
+                            <constraint firstItem="2bd-s2-XlF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4Hn-21-wt8"/>
+                            <constraint firstItem="2bd-s2-XlF" firstAttribute="top" secondItem="XEC-lA-k9g" secondAttribute="bottom" constant="50" id="drZ-3e-UGW"/>
                             <constraint firstItem="XEC-lA-k9g" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eb3-Pq-Qx2"/>
-                            <constraint firstItem="tK8-fO-eUw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="p4N-M5-h7u"/>
-                            <constraint firstItem="tK8-fO-eUw" firstAttribute="top" secondItem="XEC-lA-k9g" secondAttribute="bottom" constant="41" id="zev-aE-S8b"/>
+                            <constraint firstItem="XEC-lA-k9g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="nlb-kd-U4D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="ibImage" destination="tK8-fO-eUw" id="MkJ-rw-Pm4"/>
+                        <outlet property="ibDisplayView" destination="2bd-s2-XlF" id="veb-lC-xhe"/>
+                        <outlet property="ibDisplayViewHeight" destination="b75-pO-Rwv" id="qE8-S0-sOx"/>
+                        <outlet property="ibDisplayViewWidth" destination="Dw0-vM-PtT" id="52N-UA-d0F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -49,6 +52,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="image0" width="370" height="254"/>
+        <image name="image" width="564" height="846"/>
     </resources>
 </document>
